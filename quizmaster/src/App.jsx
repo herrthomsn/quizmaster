@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import startImage from './img/start.jpg';
 import replacedImage from './img/start2.jpg';
+import blankImage from './img/blank.jpg';
 
 const App = () => {
   const [backgroundImage, setBackgroundImage] = useState(startImage);
@@ -13,6 +14,10 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleImageClick = () => {
+    setBackgroundImage(blankImage);
+  };
+
   return (
     <div
       style={{
@@ -20,11 +25,14 @@ const App = () => {
         backgroundSize: 'cover',
         width: '100vw',
         height: '100vh',
+        cursor: 'pointer',
       }}
+      onClick={handleImageClick} 
     >
-      
+     
     </div>
   );
 };
 
 export default App;
+
